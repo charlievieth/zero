@@ -1,4 +1,3 @@
-#include "funcdata.h"
 #include "textflag.h"
 
 TEXT ·Zero(SB), NOSPLIT, $0-25
