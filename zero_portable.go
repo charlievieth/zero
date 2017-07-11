@@ -2,11 +2,16 @@
 
 package zero
 
-func Zero(a []byte) bool {
-	for _, c := range a {
-		if c != 0 {
+import "bytes"
+
+var zeroBuf [16 * 1024]byte
+
+func Zero(b []byte) bool {
+	for len(b) >= len(zeroBuf) {
+		if !bytes.Equal(b[0:len(zeroBuf)], zeroBuf[0:]) {
 			return false
 		}
+		b = b[len(zeroBuf):]
 	}
-	return true
+	return bytes.Equal(b, zeroBuf[:len(b)])
 }
