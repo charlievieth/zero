@@ -15,8 +15,8 @@ TEXT zero·memzerobody(SB), NOSPLIT, $0-0
 	JB   small
 	CMPQ BX, $64
 	JB   zero_bigloop
-	//CMPB runtime·support_avx2(SB), $1
-	//JE   zero_hugeloop_avx2
+	CMPB runtime·support_avx2(SB), $1
+	JE   zero_hugeloop_avx2
 
 	// 64 bytes at a time using xmm registers
 zero_hugeloop:
