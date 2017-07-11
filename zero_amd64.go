@@ -1,3 +1,3 @@
 package zero
 
-func zero(a []byte) bool
+func Zero(a []byte) bool

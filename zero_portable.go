@@ -2,7 +2,7 @@
 
 package zero
 
-func zero(a []byte) bool {
+func Zero(a []byte) bool {
 	for _, c := range a {
 		if c != 0 {
 			return false

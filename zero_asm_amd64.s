@@ -1,7 +1,7 @@
 #include "funcdata.h"
 #include "textflag.h"
 
-TEXT ·zero(SB), NOSPLIT, $0-25
+TEXT ·Zero(SB), NOSPLIT, $0-25
 	MOVQ a_len+8(FP), BX
 	MOVQ a+0(FP), SI
 	LEAQ ret+24(FP), AX
