@@ -7,7 +7,6 @@ TEXT ·Zero(SB), NOSPLIT, $0-25
 	JMP  zero·memzerobody(SB)
 
 // a in SI
-// b in DI
 // count in BX
 // address of result byte in AX
 TEXT zero·memzerobody(SB), NOSPLIT, $0-0
@@ -18,8 +17,8 @@ TEXT zero·memzerobody(SB), NOSPLIT, $0-0
 	CMPB runtime·support_avx2(SB), $1
 	JE   zero_hugeloop_avx2
 
-	// 64 bytes at a time using xmm registers
 zero_hugeloop:
+	// 64 bytes at a time using xmm registers
 	PXOR X1, X1
 	PXOR X3, X3
 	PXOR X5, X5
@@ -73,8 +72,8 @@ hugeloop_avx2:
 bigloop_avx2:
 	VZEROUPPER
 
-	// 8 bytes at a time using 64-bit register
 zero_bigloop:
+	// 8 bytes at a time using 64-bit register
 	XORQ DX, DX
 	JE   bigloop
 
